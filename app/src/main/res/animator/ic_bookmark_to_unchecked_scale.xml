@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <set android:ordering="sequentially">
+        <objectAnimator
+            android:duration="166"
+            android:propertyName="scaleX"
+            android:valueFrom="1.0"
+            android:valueTo="0.9"
+            android:interpolator="@anim/ic_checkbox_checked_animation_interpolator_1" />
+        <objectAnimator
+            android:duration="333"
+            android:propertyName="scaleX"
+            android:valueFrom="0.9"
+            android:valueTo="1.0"
+            android:interpolator="@anim/ic_checkbox_checked_animation_interpolator_1" />
+    </set>
+    <set android:ordering="sequentially">
+        <objectAnimator
+            android:duration="166"
+            android:propertyName="scaleY"
+            android:valueFrom="1.0"
+            android:valueTo="0.9"
+            android:interpolator="@anim/ic_checkbox_checked_animation_interpolator_1" />
+        <objectAnimator
+            android:duration="333"
+            android:propertyName="scaleY"
+            android:valueFrom="0.9"
+            android:valueTo="1.0"
+            android:interpolator="@anim/ic_checkbox_checked_animation_interpolator_1" />
+    </set>
+</set>

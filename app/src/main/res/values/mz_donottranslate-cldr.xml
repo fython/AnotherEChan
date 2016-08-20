@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <!-- Date Pattern For Meizu DateTimeUtils 英语-->
+    <string name="mc_pattern_hour_minute" translatable="false">%H:%M</string>
+    <string name="mc_pattern_hour_minute_12" translatable="false">%p %I:%M</string>
+    <string name="mc_pattern_week" translatable="false">%a</string>
+    <string name="mc_pattern_week_hour_minute" translatable="false">%a %H:%M</string>
+    <string name="mc_pattern_week_hour_minute_12" translatable="false">%a %p %I:%M</string>
+    <string name="mc_pattern_month_day">%-m/%-e</string>
+    <string name="mc_pattern_month_day_hour_minute">%-m/%-e %H:%M</string>
+    <string name="mc_pattern_month_day_hour_minute_12">%-m/%-e %p %I:%M</string>
+    <string name="mc_pattern_week_month_day_hour_minute">%a %-m/%-e %H:%M</string>
+    <string name="mc_pattern_week_month_day_hour_minute_12">%a %-m/%-e %p %I:%M</string>
+    <string name="mc_pattern_year_month">%Y/%-m</string>
+    <string name="mc_pattern_year_month_day">%Y/%-m/%-e</string>
+    <string name="mc_pattern_year_month_day_hour_minute">%Y/%-m/%-e %H:%M</string>
+    <string name="mc_pattern_year_month_day_hour_minute_12">%Y/%-m/%-e %p %I:%M</string>
+    <string name="mc_pattern_yesterday">Yesterday</string>
+    <string name="mc_pattern_hour_before">, hours ago</string>
+    <string name="mc_pattern_a_hour_before">1 hour ago</string>
+    <string name="mc_pattern_minute_before">, minutes ago</string>
+    <string name="mc_pattern_a_minute_before">1 minute ago</string>
+    <string name="mc_pattern_today">Today</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <!-- Date Pattern For Meizu DateTimeUtils 台湾-->
+    <string name="mc_pattern_month_day">%-m 月 %-e 日</string>
+    <string name="mc_pattern_month_day_hour_minute">%-m 月 %-e 日 %H:%M</string>
+    <string name="mc_pattern_month_day_hour_minute_12">%-m 月 %-e 日 %p %I:%M</string>
+    <string name="mc_pattern_week_month_day_hour_minute">%a %-m 月 %-e 日 %H:%M</string>
+    <string name="mc_pattern_week_month_day_hour_minute_12">%a %-m 月 %-e 日 %p %I:%M</string>
+    <string name="mc_pattern_year_month">%Y 年 %-m 月</string>
+    <string name="mc_pattern_year_month_day">%Y 年 %-m 月 %-e 日</string>
+    <string name="mc_pattern_year_month_day_hour_minute">%Y 年 %-m 月 %-e 日 %H:%M</string>
+    <string name="mc_pattern_year_month_day_hour_minute_12">%Y 年 %-m 月 %-e 日 %p %I:%M</string>
+    <string name="mc_pattern_yesterday">昨天</string>
+    <string name="mc_pattern_hour_before">, 小時前</string>
+    <string name="mc_pattern_a_hour_before">1 小时前</string>
+    <string name="mc_pattern_minute_before">, 分鍾前</string>
+    <string name="mc_pattern_a_minute_before">1 分鍾前</string>
+    <string name="mc_pattern_today">今天</string>
+
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <set android:ordering="sequentially">
+        <objectAnimator
+            android:duration="300"
+            android:propertyName="pathData"
+            android:interpolator="@anim/ic_checkbox_unchecked_animation_interpolator_1"
+            android:valueFrom="M5,-9
+L-5,-9
+c-1.1,0,-1.99,0.9,-1.99,2
+L-7,9
+l7,-3 7,3
+L7,-7
+c0,-1.1 -0.9,-2 -2,-2z
+M5,6
+l-5,-2.18
+L-5,6
+L-5,-7
+h10
+v13
+z"
+            android:valueTo="M5,-9
+L-5,-9
+c-1.1,0,-1.99,0.9,-1.99,2
+L-7,9
+l7,-3 7,3
+L7,-7
+c0,-1.1 -0.9,-2 -2,-2
+z
+M0,0
+l0,0
+L0,0
+L0,0
+h0
+v0
+z"
+            android:valueType="pathType"/>
+    </set>
+</set>
