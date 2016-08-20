@@ -9,5 +9,17 @@
 	<color name="pink_700">#C2185B</color>
 	<color name="pink_800">#AD1457</color>
 	<color name="teal_a400">#1DE9B6</color>
+	<color name="teal_a700">#00BFA5</color>
+
+	<color name="grey_500">#9E9E9E</color>
+	<color name="grey_300">#E0E0E0</color>
+	<color name="grey_100">#F5F5F5</color>
+	<color name="grey_50">#FAFAFA</color>
+
+	<color name="lollipop_status_bar_grey">#616161</color>
+
+	<color name="light_theme_status_bar">@color/grey_300</color>
+	<color name="light_theme_app_bar">@color/grey_100</color>
+	<color name="light_theme_background">@color/grey_50</color>
 
 </resources>

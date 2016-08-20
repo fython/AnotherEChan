@@ -14,12 +14,14 @@ import java.util.List;
 import moe.feng.oechan.R;
 import moe.feng.oechan.model.PageListResult;
 import moe.feng.oechan.ui.callback.FavouritesCallback;
+import moe.feng.oechan.ui.callback.OnItemClickListener;
 
 public class PageListAdapter extends RecyclerView.Adapter<PageListAdapter.ItemHolder> {
 
 	private List<PageListResult.Item> data;
 
 	private FavouritesCallback favouritesCallback;
+	private OnItemClickListener onItemClickListener;
 
 	public PageListAdapter() {
 		data = new ArrayList<>();
@@ -35,6 +37,10 @@ public class PageListAdapter extends RecyclerView.Adapter<PageListAdapter.ItemHo
 
 	public void setFavouritesCallback(FavouritesCallback callback) {
 		this.favouritesCallback = callback;
+	}
+
+	public void setOnItemClickListener(OnItemClickListener clickListener) {
+		this.onItemClickListener = clickListener;
 	}
 
 	@Override
@@ -57,7 +63,7 @@ public class PageListAdapter extends RecyclerView.Adapter<PageListAdapter.ItemHo
 
 	@Override
 	public int getItemCount() {
-		return data.size();
+		return data != null ? data.size() : 0;
 	}
 
 	class ItemHolder extends RecyclerView.ViewHolder {
@@ -78,6 +84,9 @@ public class PageListAdapter extends RecyclerView.Adapter<PageListAdapter.ItemHo
 				@Override
 				public void onClick(View view) {
 					PageListResult.Item item = data.get(getAdapterPosition());
+					if (onItemClickListener != null) {
+						onItemClickListener.onItemClick(ItemHolder.this, getAdapterPosition(), item);
+					}
 				}
 			});
 			checkBox.setOnClickListener(new View.OnClickListener() {

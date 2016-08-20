@@ -1,0 +1,13 @@
+<resources>
+
+	<style name="Theme.AnotherEChan.Light" parent="Theme.AppCompat.Light">
+		<item name="colorPrimary">@color/light_theme_app_bar</item>
+		<item name="colorPrimaryDark">@color/light_theme_status_bar</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+		<item name="android:navigationBarColor">@color/lollipop_status_bar_grey</item>
+		<item name="android:windowLightStatusBar">true</item>
+	</style>
+
+</resources>

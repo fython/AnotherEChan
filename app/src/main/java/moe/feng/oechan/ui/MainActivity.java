@@ -13,9 +13,11 @@ import moe.feng.oechan.dao.HomePageKeeper;
 import moe.feng.oechan.model.BaseMessage;
 import moe.feng.oechan.model.PageListResult;
 import moe.feng.oechan.ui.adapter.PageListAdapter;
+import moe.feng.oechan.ui.callback.OnItemClickListener;
 import moe.feng.oechan.ui.common.AbsActivity;
 
-public class MainActivity extends AbsActivity implements SwipeRefreshLayout.OnRefreshListener {
+public class MainActivity extends AbsActivity
+		implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener {
 
 	private RecyclerView mListView;
 	private SwipeRefreshLayout mRefreshLayout;
@@ -52,12 +54,14 @@ public class MainActivity extends AbsActivity implements SwipeRefreshLayout.OnRe
     }
 
 	private void setUpRefreshLayout() {
+		mRefreshLayout.setColorSchemeResources(R.color.teal_a700);
 		mRefreshLayout.setOnRefreshListener(this);
 	}
 
 	private void setUpRecyclerView() {
 		mAdapter = new PageListAdapter();
 		mAdapter.setFavouritesCallback(mFavManager);
+		mAdapter.setOnItemClickListener(this);
 		mListView.setHasFixedSize(false);
 		mListView.setAdapter(mAdapter);
 		mListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -107,6 +111,13 @@ public class MainActivity extends AbsActivity implements SwipeRefreshLayout.OnRe
 
 		mPageKeeper.setNowPage(1);
 		new GetPageTask().execute(1);
+	}
+
+	@Override
+	public void onItemClick(RecyclerView.ViewHolder holder, int position, Object data) {
+		if (data instanceof PageListResult.Item) {
+			DetailsActivity.launch(this, (PageListResult.Item) data, position);
+		}
 	}
 
 	private class GetPageTask extends AsyncTask<Integer, Void, BaseMessage<PageListResult>> {

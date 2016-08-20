@@ -1,3 +1,10 @@
 <resources>
+
     <string name="app_name">AnotherEChan</string>
+
+	<string name="title_details">Details</string>
+
+	<string name="item_episode_format">Episode %d</string>
+	<string name="item_click_count_format">%d Views</string>
+
 </resources>
