@@ -26,4 +26,9 @@
 		<item name="windowNoTitle">true</item>
 	</style>
 
+	<style name="Theme.AnotherEChan.Dark.Translucent" parent="Theme.AnotherEChan.Dark">
+		<item name="android:windowTranslucentStatus">true</item>
+		<item name="android:windowTranslucentNavigation">true</item>
+	</style>
+
 </resources>

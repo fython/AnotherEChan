@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "moe.feng.oechan"
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -31,7 +31,8 @@ dependencies {
 	compile 'com.google.code.gson:gson:2.7'
 	compile 'com.github.florent37:picassopalette:2.0.0'
 	compile 'com.squareup.picasso:picasso:2.5.2'
-	compile 'com.devbrackets.android:exomedia:3.0.1'
 
 	compile 'com.tencent.bugly:crashreport:2.1.7'
+
+	compile project(':vitamio')
 }

@@ -30,7 +30,7 @@
 
 	    <activity android:name=".ui.video.PlayerActivity"
 	              android:label="@string/title_details"
-	              android:theme="@style/Theme.AnotherEChan.Dark"
+	              android:theme="@style/Theme.AnotherEChan.Dark.Translucent"
 	              android:screenOrientation="sensorLandscape">
 		    <intent-filter>
 			    <action android:name="android.intent.action.MAIN"/>

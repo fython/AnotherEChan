@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_width="match_parent"
-             android:layout_height="match_parent">
+             android:layout_height="match_parent"
+             android:id="@+id/player_layout"
+             xmlns:tools="http://schemas.android.com/tools">
 
-	<com.devbrackets.android.exomedia.ui.widget.EMVideoView
+	<moe.feng.oechan.view.VideoView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:id="@+id/video_view"/>
+		android:id="@+id/player_view"/>
+
+	<ProgressBar
+		style="?android:attr/progressBarStyleLarge"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/progressBar"
+		android:layout_gravity="center"/>
 
 </FrameLayout>

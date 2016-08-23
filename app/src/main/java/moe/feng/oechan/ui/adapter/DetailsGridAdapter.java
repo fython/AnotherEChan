@@ -16,12 +16,14 @@ import java.util.List;
 
 import moe.feng.oechan.R;
 import moe.feng.oechan.model.DetailsResult;
+import moe.feng.oechan.ui.callback.OnItemClickListener;
 
 public class DetailsGridAdapter extends RecyclerView.Adapter<DetailsGridAdapter.ItemHolder> {
 
 	private List<DetailsResult.Episode> data;
 
 	private Picasso picasso;
+	private OnItemClickListener onItemClickListener;
 
 	private String CLICK_COUNT_FORMAT, EPISODE_FORMAT;
 
@@ -35,6 +37,10 @@ public class DetailsGridAdapter extends RecyclerView.Adapter<DetailsGridAdapter.
 
 	public void addData(Collection<? extends DetailsResult.Episode> data) {
 		this.data.addAll(data);
+	}
+
+	public void setOnItemClickListener(OnItemClickListener clickListener) {
+		this.onItemClickListener = clickListener;
 	}
 
 	@Override
@@ -86,6 +92,16 @@ public class DetailsGridAdapter extends RecyclerView.Adapter<DetailsGridAdapter.
 			image = (ImageView) itemView.findViewById(R.id.image);
 			title = (TextView) itemView.findViewById(R.id.title);
 			text = (TextView) itemView.findViewById(R.id.text);
+
+			itemView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					if (onItemClickListener != null) {
+						DetailsResult.Episode item = data.get(getAdapterPosition());
+						onItemClickListener.onItemClick(ItemHolder.this, getAdapterPosition(), item);
+					}
+				}
+			});
 		}
 
 	}

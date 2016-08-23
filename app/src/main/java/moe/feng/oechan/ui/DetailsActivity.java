@@ -5,18 +5,23 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import moe.feng.oechan.R;
 import moe.feng.oechan.api.DetailsApi;
 import moe.feng.oechan.model.BaseMessage;
 import moe.feng.oechan.model.DetailsResult;
 import moe.feng.oechan.model.PageListResult;
+import moe.feng.oechan.model.VideoUrl;
 import moe.feng.oechan.support.GsonUtils;
 import moe.feng.oechan.ui.adapter.DetailsGridAdapter;
+import moe.feng.oechan.ui.callback.OnItemClickListener;
 import moe.feng.oechan.ui.common.AbsActivity;
+import moe.feng.oechan.ui.video.PlayerActivity;
 import moe.feng.oechan.view.GridRecyclerView;
 
-public class DetailsActivity extends AbsActivity implements SwipeRefreshLayout.OnRefreshListener {
+public class DetailsActivity extends AbsActivity
+		implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener {
 
 	private PageListResult.Item data;
 
@@ -58,6 +63,7 @@ public class DetailsActivity extends AbsActivity implements SwipeRefreshLayout.O
 
 	private void setUpRecyclerView() {
 		mAdapter = new DetailsGridAdapter();
+		mAdapter.setOnItemClickListener(this);
 		mLayoutManager = new GridLayoutManager(this, 2);
 		mListView.setHasFixedSize(true);
 		mListView.setLayoutManager(mLayoutManager);
@@ -99,6 +105,11 @@ public class DetailsActivity extends AbsActivity implements SwipeRefreshLayout.O
 		new GetDetailsTask().execute();
 	}
 
+	@Override
+	public void onItemClick(RecyclerView.ViewHolder holder, int position, Object data) {
+		new GetVideoUrlTask().execute((DetailsResult.Episode) data);
+	}
+
 	private class GetDetailsTask extends AsyncTask<Void, Void, BaseMessage<DetailsResult>> {
 
 		@Override
@@ -114,6 +125,30 @@ public class DetailsActivity extends AbsActivity implements SwipeRefreshLayout.O
 				mAdapter.setData(result.getData().getList());
 				mAdapter.notifyDataSetChanged();
 				playListAnimation();
+			}
+		}
+
+	}
+
+	private class GetVideoUrlTask extends AsyncTask<DetailsResult.Episode, Void, BaseMessage<VideoUrl>> {
+
+		private DetailsResult.Episode target;
+
+		@Override
+		protected BaseMessage<VideoUrl> doInBackground(DetailsResult.Episode... episodes) {
+			target = episodes[0];
+			return DetailsApi.getVideoUrl("zh-TW", data.getId(), target.getNumber());
+		}
+
+		@Override
+		protected void onPostExecute(BaseMessage<VideoUrl> result) {
+			if (isFinishing() || isDestroyed()) return;
+			if (result.getCode() == BaseMessage.CODE_OKAY) {
+				PlayerActivity.launch(
+						DetailsActivity.this,
+						target.getNumber() + " - " + data.getName(),
+						result.getData()
+				);
 			}
 		}
 
